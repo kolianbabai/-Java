@@ -1,0 +1,4 @@
+ FileInputStream fileInputStream = new FileInputStream(pathToFile);
+ while((fileInputStream.available() > 0)){
+            arrayList.add(fileInputStream.read()); // добавляем байты в Список
+        }
