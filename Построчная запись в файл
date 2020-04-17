@@ -7,3 +7,12 @@
 
 
     }
+    
+    // вариант №2
+ public static void putToFile(String fileName, String text) throws IOException {
+
+        OutputStream os = os = new FileOutputStream(new File(fileName));
+        os.write(text.getBytes(), 0, text.length());
+
+                os.close();
+        }
