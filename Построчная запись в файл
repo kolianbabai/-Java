@@ -1,0 +1,9 @@
+  public static void putToFile(String fileName, String text) throws IOException{
+
+            FileWriter writer = new FileWriter(fileName, true);
+            BufferedWriter bufferWriter = new BufferedWriter(writer);
+            bufferWriter.write(text);
+            bufferWriter.close();
+
+
+    }
