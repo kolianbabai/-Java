@@ -27,5 +27,5 @@ public class ReadFileLineByLine {
  
 }
 
-вариант №2 (с помощью FileReader(String s)
+статья https://javarush.ru/groups/posts/2140-praktika-rabotih-s-klassami-buffreredreader-i-inputstreamreader
 
