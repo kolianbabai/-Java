@@ -1,0 +1,41 @@
+В методе fillInPropertiesMap() считайте имя файла с консоли и заполни карту properties данными из файла.
+В методах save() и load() реализуй логику записи в файл и чтения из файла для карты properties.
+Файл должен быть в формате .properties. Комментарии в файле можно игнорировать.
+Про .properties почитать тут - http://ru.wikipedia.org/wiki/.properties
+
+
+Требования:
+1. Метод fillInPropertiesMap должен считывать данные с консоли.
+2. Метод fillInPropertiesMap должен создавать FileInputStream, передавая считанную строку в качестве параметра.
+3. Метод fillInPropertiesMap должен вызывать метод load передавая только что созданный FileInputStream в качестве параметра.
+4. Метод save должен сохранять карту properties в полученный в качестве параметра объект типа OutputStream.
+5. Метод load должен восстанавливать состояние карты properties из полученного в качестве параметра объекта типа InputStream.
+
+public class Solution {
+    public static Map<String, String> properties = new HashMap<>();
+
+    public void fillInPropertiesMap() throws Exception {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        FileInputStream fileInputStream = new FileInputStream(bufferedReader.readLine());
+        load(fileInputStream);
+
+        bufferedReader.close();
+        fileInputStream.close();
+    }
+
+    public void save(OutputStream outputStream) throws Exception {
+        Properties propertiesClass = new Properties();
+        propertiesClass.putAll(properties);
+        propertiesClass.store(outputStream, "my prop");
+    }
+
+    public void load(InputStream inputStream) throws Exception {
+        Properties propertiesClass = new Properties();
+        propertiesClass.load(inputStream);
+        properties.putAll((Map)propertiesClass);
+    }
+
+    public static void main(String[] args) {
+
+    }
+}
